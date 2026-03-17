@@ -1,0 +1,46 @@
+# requirements.txt
+# =================
+# Offline Face Recognition Attendance System
+# Install with: pip install -r requirements.txt
+#
+# Python 3.9 or 3.10 recommended for best compatibility.
+# Python 3.11+ may have issues with some ONNX runtime versions.
+#
+# INSTALLATION ORDER MATTERS:
+#   1. pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+#      (CPU-only PyTorch is sufficient for inference with frozen ArcFace)
+#   2. pip install -r requirements.txt
+
+# ── Core deep learning ───────────────────────────────────────────────────────
+# PyTorch (CPU) - install separately first, see above
+# torch>=1.13.0
+# torchvision>=0.14.0
+
+# ── Face detection: YOLOv8-face ──────────────────────────────────────────────
+ultralytics>=8.0.0
+
+# ── Face recognition: ArcFace via InsightFace ────────────────────────────────
+insightface>=0.7.3
+onnxruntime>=1.14.0     # CPU inference for InsightFace ONNX models
+# onnxruntime-gpu       # Use this instead if you have CUDA GPU
+
+# ── Image processing ─────────────────────────────────────────────────────────
+opencv-python>=4.7.0
+numpy>=1.23.0
+
+# ── Machine learning: SVM + kNN classifier ───────────────────────────────────
+scikit-learn>=1.2.0
+
+# ── Visualization (optional but useful for evaluation) ───────────────────────
+matplotlib>=3.6.0
+
+# ── Utilities ────────────────────────────────────────────────────────────────
+tqdm>=4.65.0            # Progress bars during enrollment
+
+# ── Notes ────────────────────────────────────────────────────────────────────
+# InsightFace auto-downloads buffalo_l model (~300MB) on first run to:
+#   ~/.insightface/models/buffalo_l/
+# After first run, this works fully offline.
+#
+# YOLO weights (yolov8n-face.pt, ~6MB) must be downloaded manually:
+#   https://github.com/derronqi/yolov8-face/releases

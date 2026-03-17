@@ -1,0 +1,319 @@
+{
+  "names_map": {
+    "0": "AARUNI SAHAY",
+    "1": "Aayansh Jaiswal",
+    "2": "AAYUSH HORE",
+    "3": "Abhiraj",
+    "4": "ADITYA JAGGI",
+    "5": "ADITYA PATHAK",
+    "6": "ANANWAY GOSWAMI",
+    "7": "Anirban Modak",
+    "8": "ANSITA RAY",
+    "9": "ARYAN SINGH",
+    "10": "AVINASH SINGH",
+    "11": "Biswarup Mahapatra",
+    "12": "DEBABRAT MAHANTO",
+    "13": "Evelyn Johnson",
+    "14": "HIMANSHU SINGH",
+    "15": "ISHAAN CHAKRABORTY",
+    "16": "JEET NASKAR",
+    "17": "Keshab Agarwal",
+    "18": "KRISHNA RAKSHIT",
+    "19": "Lucky Jha",
+    "20": "Manasi Mohanty",
+    "21": "Manimoy Karmakar",
+    "22": "MANSHI MEHUL",
+    "23": "MD TAYEEB",
+    "24": "MEGHA KUMARI",
+    "25": "Mohul",
+    "26": "Monojit Pal",
+    "27": "PALLAB GHOSH",
+    "28": "Parth Raj",
+    "29": "PBIDYUSMITA PATRO",
+    "30": "PRANJAL SINHA",
+    "31": "PULAK MOHANTY",
+    "32": "RAJASHREE DAS",
+    "33": "RAMYA PANDA",
+    "34": "RITESH PATEL",
+    "35": "SAMPRITI RAY",
+    "36": "SAMRIDDHA BAGCHI",
+    "37": "SANIDHYA RAYAL",
+    "38": "Sarthak Dash",
+    "39": "SASWAT PRADHAN",
+    "40": "Satyam Kumar",
+    "41": "SHANKHADEEP PAUL",
+    "42": "SHIVAM SINGH",
+    "43": "Shivangi Sinha",
+    "44": "SOURAV SANU",
+    "45": "Souvik Mandal",
+    "46": "SREERAJ SAHA",
+    "47": "SRIJAN BASU",
+    "48": "Srijan Das",
+    "49": "STUTI SHAH",
+    "50": "SUBHAM MAITI",
+    "51": "SUKRIT DUTTA",
+    "52": "SUMEDHA CHATTOPADHYAY",
+    "53": "Tanmay",
+    "54": "VAIBHAV VATS",
+    "55": "vedansh parashar",
+    "56": "Yogesh Sangwan",
+    "57": "ABHINAV KUMAR",
+    "58": "ADITI JAIN",
+    "59": "Aditya Anand",
+    "60": "Pulkit Raj",
+    "61": "SANSKRITI VASHISHTHA"
+  },
+  "summary": {
+    "AARUNI SAHAY": {
+      "label": 0,
+      "train_embeddings": 495
+    },
+    "Aayansh Jaiswal": {
+      "label": 1,
+      "train_embeddings": 130
+    },
+    "AAYUSH HORE": {
+      "label": 2,
+      "train_embeddings": 595
+    },
+    "Abhiraj": {
+      "label": 3,
+      "train_embeddings": 295
+    },
+    "ADITYA JAGGI": {
+      "label": 4,
+      "train_embeddings": 290
+    },
+    "ADITYA PATHAK": {
+      "label": 5,
+      "train_embeddings": 285
+    },
+    "ANANWAY GOSWAMI": {
+      "label": 6,
+      "train_embeddings": 280
+    },
+    "Anirban Modak": {
+      "label": 7,
+      "train_embeddings": 335
+    },
+    "ANSITA RAY": {
+      "label": 8,
+      "train_embeddings": 750
+    },
+    "ARYAN SINGH": {
+      "label": 9,
+      "train_embeddings": 240
+    },
+    "AVINASH SINGH": {
+      "label": 10,
+      "train_embeddings": 100
+    },
+    "Biswarup Mahapatra": {
+      "label": 11,
+      "train_embeddings": 260
+    },
+    "DEBABRAT MAHANTO": {
+      "label": 12,
+      "train_embeddings": 635
+    },
+    "Evelyn Johnson": {
+      "label": 13,
+      "train_embeddings": 370
+    },
+    "HIMANSHU SINGH": {
+      "label": 14,
+      "train_embeddings": 255
+    },
+    "ISHAAN CHAKRABORTY": {
+      "label": 15,
+      "train_embeddings": 750
+    },
+    "JEET NASKAR": {
+      "label": 16,
+      "train_embeddings": 275
+    },
+    "Keshab Agarwal": {
+      "label": 17,
+      "train_embeddings": 195
+    },
+    "KRISHNA RAKSHIT": {
+      "label": 18,
+      "train_embeddings": 260
+    },
+    "Lucky Jha": {
+      "label": 19,
+      "train_embeddings": 430
+    },
+    "Manasi Mohanty": {
+      "label": 20,
+      "train_embeddings": 350
+    },
+    "Manimoy Karmakar": {
+      "label": 21,
+      "train_embeddings": 145
+    },
+    "MANSHI MEHUL": {
+      "label": 22,
+      "train_embeddings": 310
+    },
+    "MD TAYEEB": {
+      "label": 23,
+      "train_embeddings": 490
+    },
+    "MEGHA KUMARI": {
+      "label": 24,
+      "train_embeddings": 310
+    },
+    "Mohul": {
+      "label": 25,
+      "train_embeddings": 355
+    },
+    "Monojit Pal": {
+      "label": 26,
+      "train_embeddings": 335
+    },
+    "PALLAB GHOSH": {
+      "label": 27,
+      "train_embeddings": 310
+    },
+    "Parth Raj": {
+      "label": 28,
+      "train_embeddings": 245
+    },
+    "PBIDYUSMITA PATRO": {
+      "label": 29,
+      "train_embeddings": 285
+    },
+    "PRANJAL SINHA": {
+      "label": 30,
+      "train_embeddings": 300
+    },
+    "PULAK MOHANTY": {
+      "label": 31,
+      "train_embeddings": 295
+    },
+    "RAJASHREE DAS": {
+      "label": 32,
+      "train_embeddings": 260
+    },
+    "RAMYA PANDA": {
+      "label": 33,
+      "train_embeddings": 750
+    },
+    "RITESH PATEL": {
+      "label": 34,
+      "train_embeddings": 165
+    },
+    "SAMPRITI RAY": {
+      "label": 35,
+      "train_embeddings": 300
+    },
+    "SAMRIDDHA BAGCHI": {
+      "label": 36,
+      "train_embeddings": 305
+    },
+    "SANIDHYA RAYAL": {
+      "label": 37,
+      "train_embeddings": 495
+    },
+    "Sarthak Dash": {
+      "label": 38,
+      "train_embeddings": 745
+    },
+    "SASWAT PRADHAN": {
+      "label": 39,
+      "train_embeddings": 295
+    },
+    "Satyam Kumar": {
+      "label": 40,
+      "train_embeddings": 355
+    },
+    "SHANKHADEEP PAUL": {
+      "label": 41,
+      "train_embeddings": 170
+    },
+    "SHIVAM SINGH": {
+      "label": 42,
+      "train_embeddings": 330
+    },
+    "Shivangi Sinha": {
+      "label": 43,
+      "train_embeddings": 180
+    },
+    "SOURAV SANU": {
+      "label": 44,
+      "train_embeddings": 250
+    },
+    "Souvik Mandal": {
+      "label": 45,
+      "train_embeddings": 290
+    },
+    "SREERAJ SAHA": {
+      "label": 46,
+      "train_embeddings": 265
+    },
+    "SRIJAN BASU": {
+      "label": 47,
+      "train_embeddings": 265
+    },
+    "Srijan Das": {
+      "label": 48,
+      "train_embeddings": 640
+    },
+    "STUTI SHAH": {
+      "label": 49,
+      "train_embeddings": 315
+    },
+    "SUBHAM MAITI": {
+      "label": 50,
+      "train_embeddings": 345
+    },
+    "SUKRIT DUTTA": {
+      "label": 51,
+      "train_embeddings": 580
+    },
+    "SUMEDHA CHATTOPADHYAY": {
+      "label": 52,
+      "train_embeddings": 280
+    },
+    "Tanmay": {
+      "label": 53,
+      "train_embeddings": 465
+    },
+    "VAIBHAV VATS": {
+      "label": 54,
+      "train_embeddings": 190
+    },
+    "vedansh parashar": {
+      "label": 55,
+      "train_embeddings": 290
+    },
+    "Yogesh Sangwan": {
+      "label": 56,
+      "train_embeddings": 260
+    },
+    "ABHINAV KUMAR": {
+      "label": 57,
+      "train_embeddings": 285
+    },
+    "ADITI JAIN": {
+      "label": 58,
+      "train_embeddings": 375
+    },
+    "Aditya Anand": {
+      "label": 59,
+      "train_embeddings": 170
+    },
+    "Pulkit Raj": {
+      "label": 60,
+      "train_embeddings": 230
+    },
+    "SANSKRITI VASHISHTHA": {
+      "label": 61,
+      "train_embeddings": 190
+    }
+  },
+  "total_students": 62,
+  "total_train_embeddings": 20990,
+  "total_test_embeddings": 0
+}

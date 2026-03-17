@@ -1,0 +1,318 @@
+# Offline Face Recognition Attendance System
+**Final Year Project | Computer Science**
+
+A complete offline attendance system using YOLO face detection and ArcFace recognition,
+designed for classrooms of ~80 students with 3–4 images per session.
+
+---
+
+## Architecture Overview
+
+```
+Classroom Image(s)
+       │
+       ▼
+┌──────────────────┐
+│  YOLO Face       │  YOLOv8-face (trained on WIDER Face)
+│  Detection       │  Outputs: bbox + 5-point landmarks
+└──────┬───────────┘
+       │ bounding boxes + landmarks
+       ▼
+┌──────────────────┐
+│  Face Alignment  │  Similarity transform → 112×112 canonical space
+│  (5-pt affine)   │  Required: ArcFace trained on these exact coordinates
+└──────┬───────────┘
+       │ 112×112 aligned BGR face
+       ▼
+┌──────────────────┐
+│  ArcFace         │  InsightFace buffalo_l (ResNet100, frozen)
+│  Embedding       │  Outputs: 512-D L2-normalized embedding
+└──────┬───────────┘
+       │ (512,) float32 vector
+       ▼
+┌──────────────────┐
+│  SVM + kNN       │  Ensemble classifier trained on enrollment embeddings
+│  Ensemble        │  SVM: RBF kernel, C=10, balanced class weights
+└──────┬───────────┘  kNN: k=5, cosine metric
+       │ name + confidence score
+       ▼
+┌──────────────────┐
+│  Confidence      │  Rejects predictions below 0.55 confidence
+│  Thresholding    │  + cosine similarity gate (secondary check)
+└──────┬───────────┘
+       │ verified identities per image
+       ▼
+┌──────────────────┐
+│  Majority Voting │  Student present if seen in ≥2 images
+│  Aggregation     │  OR confidence > 0.82 in any single image
+└──────┬───────────┘
+       │
+       ▼
+  Attendance CSV + JSON Report
+```
+
+---
+
+## Why Each Design Decision Was Made
+
+### YOLO for Detection
+Generic YOLO (COCO-trained) detects `person` class — too coarse for faces.
+YOLOv8-face is trained on WIDER Face (393K labeled faces) and outputs 5-point
+landmarks alongside bounding boxes. These landmarks are essential for alignment.
+
+### 5-Point Affine Alignment
+ArcFace was trained on faces aligned to a specific 112×112 template using a
+similarity transform. Feeding unaligned crops shifts embeddings away from their
+training distribution. Landmark-based alignment is not optional — it directly
+determines embedding quality.
+
+### ArcFace Frozen (No Fine-tuning)
+ArcFace was trained on 5.8M images across 85K identities using angular margin loss.
+For 80 students, the backbone already generalizes perfectly. Fine-tuning with limited
+data risks overfitting and requires complex ArcFace/Triplet loss implementation.
+Transfer learning at the classifier level (SVM on embeddings) is the correct approach.
+
+### Embedding Augmentation During Enrollment
+Before extracting embeddings, each enrollment image is augmented (flip, brightness ±20%,
+contrast +15%). This synthetically expands the embedding database, improving SVM
+boundary quality without touching the model. It simulates having more angles per student.
+
+### SVM + kNN Ensemble
+SVM alone may be overconfident near boundaries. kNN naturally handles multi-modal
+distributions (same student appearing frontal vs. angled). When they agree, confidence
+is averaged. When they disagree, the more confident one wins (with a penalty).
+
+### Temporal Split for Honest Evaluation
+Video frames are temporally correlated — consecutive frames are nearly identical.
+Random splitting puts near-duplicates in both train and test, inflating accuracy.
+**We always split by temporal order**: first 70% → train, last 30% → test.
+This gives a much more honest accuracy estimate.
+
+### Majority Voting Aggregation
+With ~25 faces × 4 images = 100 detections per session, even a 5% FP rate means
+5 wrong attendance entries. Requiring presence in ≥2 images reduces false positives
+from single-image noise (partial face, motion blur, lighting artefact).
+
+---
+
+## Project Structure
+
+```
+attendance_system/
+│
+├── config.py                    ← All parameters (thresholds, paths, model names)
+│
+├── src/
+│   ├── detector.py              ← YOLOv8-face: detects faces + landmarks
+│   ├── aligner.py               ← 5-pt affine alignment to 112×112
+│   ├── embedder.py              ← ArcFace 512-D embedding extraction
+│   ├── classifier.py            ← SVM + kNN ensemble with confidence thresholding
+│   ├── enrollment.py            ← Enrollment pipeline (images → embeddings → classifier)
+│   ├── recognizer.py            ← Session recognition + majority voting aggregation
+│   └── utils.py                 ← Logging, video frame extraction, visualization
+│
+├── scripts/
+│   ├── extract_frames.py        ← Step 0: Extract frames from enrollment videos
+│   ├── run_enrollment.py        ← Step 1: Process enrollment data, train classifier
+│   ├── run_attendance.py        ← Step 2: Run attendance for a session
+│   └── evaluate.py              ← Step 3: Evaluate accuracy with proper metrics
+│
+├── models/
+│   ├── yolov8n-face.pt          ← Download manually (see Setup)
+│   └── classifier.pkl           ← Generated by run_enrollment.py
+│
+├── data/
+│   ├── enrollment/
+│   │   ├── Alice_CS101/         ← Format: <Name>_<RollNo>
+│   │   │   ├── frame_0000.jpg
+│   │   │   └── ...
+│   │   └── Bob_CS102/
+│   ├── classroom_sessions/
+│   │   └── session_001/
+│   │       ├── row1.jpg
+│   │       ├── row2.jpg
+│   │       ├── row3.jpg
+│   │       └── row4.jpg
+│   └── embeddings/              ← Generated by run_enrollment.py
+│       ├── train_embeddings.npy
+│       ├── train_labels.npy
+│       ├── test_embeddings.npy
+│       ├── test_labels.npy
+│       └── metadata.json
+│
+├── outputs/
+│   └── attendance_reports/      ← CSV + JSON output per session
+│
+└── requirements.txt
+```
+
+---
+
+## Setup
+
+### 1. Install Python Dependencies
+```bash
+# Recommended: Python 3.9 or 3.10
+python -m venv venv
+source venv/bin/activate          # Linux/Mac
+venv\Scripts\activate             # Windows
+
+# CPU-only PyTorch (sufficient for inference)
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+
+# All other dependencies
+pip install -r requirements.txt
+```
+
+### 2. Download YOLO Face Weights
+Download `yolov8n-face.pt` from:
+**https://github.com/derronqi/yolov8-face/releases**
+
+Place it at: `models/yolov8n-face.pt`
+
+### 3. ArcFace Model (Auto-downloaded)
+InsightFace's `buffalo_l` model (~300MB) downloads automatically on first run to:
+`~/.insightface/models/buffalo_l/`
+
+After first run, it works fully offline.
+
+---
+
+## Usage
+
+### Step 0: Prepare Enrollment Data
+```
+data/enrollment/
+├── Alice_CS101/        ← FolderName = StudentName_RollNumber
+│   ├── video.mp4       ← Enrollment video OR already-extracted images
+│   └── ...
+├── Bob_CS102/
+└── ...
+```
+
+If you have enrollment videos, extract frames first:
+```bash
+python scripts/extract_frames.py
+# Extracts every 5th frame (6fps from 30fps video)
+# Creates frame_0000.jpg, frame_0005.jpg, ... per student
+```
+
+### Step 1: Enroll Students
+```bash
+python scripts/run_enrollment.py
+```
+This:
+- Detects faces in all enrollment images
+- Extracts ArcFace embeddings (with augmentation)
+- Splits data temporally (70% train, 30% test)
+- Trains SVM + kNN ensemble
+- Saves classifier to `models/classifier.pkl`
+
+### Step 2: Take Attendance
+```bash
+# For a specific session:
+python scripts/run_attendance.py --session data/classroom_sessions/session_001
+
+# For all sessions:
+python scripts/run_attendance.py --all
+```
+
+Output CSV format:
+```
+roll_no, name, status, images_seen, total_images, avg_confidence, max_confidence
+CS101, Alice, Present, 3, 4, 0.821, 0.893
+CS102, Bob, Absent, 0, 4, 0.0, 0.0
+```
+
+### Step 3: Evaluate (Optional but Recommended)
+```bash
+python scripts/evaluate.py
+
+# With hyperparameter tuning:
+python scripts/evaluate.py --tune
+```
+
+---
+
+## Tuning the System
+
+### Too many "Unknown" for enrolled students
+Symptom: System doesn't recognize students it should know.
+Fix: Lower `RECOGNITION['confidence_threshold']` in config.py (try 0.45).
+
+### False attendances (strangers marked present)
+Symptom: Students not in the class appear in attendance.
+Fix: Raise `RECOGNITION['confidence_threshold']` (try 0.65).
+Also raise `RECOGNITION['min_cosine_sim']` (try 0.35).
+
+### Student present in 1 image but not marked present
+Symptom: Student visible in only one row image, absent in others.
+Fix: Either lower `AGGREGATION['min_images_required']` to 1,
+or lower `AGGREGATION['high_conf_override']` to 0.70.
+
+### Low overall accuracy
+Check in this order:
+1. Are you using `yolov8n-face.pt` (not generic yolov8n.pt)?
+2. Is landmark-based alignment working? (check logs for "bbox fallback" warnings)
+3. Run `evaluate.py --tune` to find better SVM hyperparameters.
+4. Check embedding UMAP visualization — are clusters well-separated?
+
+---
+
+## Evaluation Metrics (for Viva)
+
+| Metric | What It Measures | Expected Value |
+|--------|-----------------|----------------|
+| Accuracy | Overall correct predictions | >85% on test set |
+| Macro F1 | Average F1 across all students | >0.82 |
+| Precision | Of predicted presences, how many correct | >0.88 |
+| Recall | Of actual students, how many detected | >0.80 |
+| False Attendance Rate | Unknowns marked present | <2% |
+
+---
+
+## Viva Preparation
+
+**Q: Why YOLO for detection?**
+> YOLOv8-face is trained specifically on the WIDER Face dataset and outputs
+> 5-point facial landmarks. These landmarks enable affine alignment to ArcFace's
+> canonical coordinate space — which is critical for reliable embeddings.
+
+**Q: Why not fine-tune ArcFace?**
+> ArcFace was trained on 5.8M images from 85K identities. Our 80 students are a
+> tiny subset already well-covered by that distribution. Fine-tuning with limited
+> data per student risks overfitting and requires complex loss implementation
+> (ArcFace loss or Triplet loss). The marginal gain (2-5%) doesn't justify the risk.
+
+**Q: Why SVM + kNN ensemble?**
+> SVM learns optimal hyperplane boundaries in 512-D embedding space.
+> kNN votes from nearest enrolled embeddings — naturally handles multiple
+> poses per student. When they agree, confidence is high. When they disagree,
+> we penalize and pick the more confident one. The ensemble is consistently
+> more robust than either classifier alone.
+
+**Q: What is the confidence threshold and why is it necessary?**
+> Without thresholding, every unrecognized face (visitor, TA, occluded face)
+> gets assigned to the most geometrically similar student, generating false
+> attendance. The threshold (0.55) and cosine similarity gate (0.28) reject
+> low-confidence predictions as "Unknown" instead.
+
+**Q: How did you prevent data leakage in evaluation?**
+> Enrollment video frames are temporally correlated — consecutive frames are
+> nearly identical. Random splitting would place near-duplicates in both train
+> and test, inflating accuracy. We split temporally: first 70% of each
+> student's frames for training, last 30% for testing.
+
+---
+
+## Dependencies
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| ultralytics | ≥8.0 | YOLOv8-face inference |
+| insightface | ≥0.7.3 | ArcFace embedding model |
+| onnxruntime | ≥1.14 | CPU inference for InsightFace |
+| opencv-python | ≥4.7 | Image I/O, alignment |
+| scikit-learn | ≥1.2 | SVM, kNN, evaluation |
+| numpy | ≥1.23 | Array operations |
+| matplotlib | ≥3.6 | Evaluation plots (optional) |

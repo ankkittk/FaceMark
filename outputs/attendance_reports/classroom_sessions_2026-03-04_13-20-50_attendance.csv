@@ -1,0 +1,9 @@
+roll_no,name,status,images_seen,total_images,avg_confidence,max_confidence
+Abhinav-Singh,23053019,Absent,0,5,0.0,0.0
+Ankitt-Kushary,23053027,Present,3,5,0.765,0.85
+Ayush-Kumar,23051823,Absent,0,5,0.0,0.0
+Gulshan-Kumar-Dubey,23052158,Present,4,5,0.822,0.92
+Harsh-Kumar-Singh,23053526,Absent,0,5,0.0,0.0
+Hemant-Kumar,23052641,Present,3,5,0.795,0.861
+Om-Prakash,23052895,Present,4,5,0.874,0.887
+Ratnadeep-Gharui,23052661,Present,4,5,0.857,0.922

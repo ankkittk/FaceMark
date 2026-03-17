@@ -1,0 +1,745 @@
+{
+  "session_id": "classroom_sessions",
+  "timestamp": "2026-03-04 13:20:50",
+  "summary": {
+    "total_enrolled": 8,
+    "present": 5,
+    "absent": 3,
+    "unknown_detections": 16,
+    "total_detections": 38
+  },
+  "present_students": [
+    {
+      "name": "23052158",
+      "roll_no": "Gulshan-Kumar-Dubey",
+      "avg_confidence": 0.822,
+      "max_confidence": 0.92,
+      "images_seen": 4,
+      "total_images": 5,
+      "status": "Present"
+    },
+    {
+      "name": "23052641",
+      "roll_no": "Hemant-Kumar",
+      "avg_confidence": 0.795,
+      "max_confidence": 0.861,
+      "images_seen": 3,
+      "total_images": 5,
+      "status": "Present"
+    },
+    {
+      "name": "23052661",
+      "roll_no": "Ratnadeep-Gharui",
+      "avg_confidence": 0.857,
+      "max_confidence": 0.922,
+      "images_seen": 4,
+      "total_images": 5,
+      "status": "Present"
+    },
+    {
+      "name": "23052895",
+      "roll_no": "Om-Prakash",
+      "avg_confidence": 0.874,
+      "max_confidence": 0.887,
+      "images_seen": 4,
+      "total_images": 5,
+      "status": "Present"
+    },
+    {
+      "name": "23053027",
+      "roll_no": "Ankitt-Kushary",
+      "avg_confidence": 0.765,
+      "max_confidence": 0.85,
+      "images_seen": 3,
+      "total_images": 5,
+      "status": "Present"
+    }
+  ],
+  "absent_students": [
+    {
+      "name": "23051823",
+      "roll_no": "Ayush-Kumar",
+      "avg_confidence": 0.0,
+      "max_confidence": 0.0,
+      "images_seen": 0,
+      "total_images": 5,
+      "status": "Absent"
+    },
+    {
+      "name": "23053019",
+      "roll_no": "Abhinav-Singh",
+      "avg_confidence": 0.0,
+      "max_confidence": 0.0,
+      "images_seen": 0,
+      "total_images": 5,
+      "status": "Absent"
+    },
+    {
+      "name": "23053526",
+      "roll_no": "Harsh-Kumar-Singh",
+      "avg_confidence": 0.0,
+      "max_confidence": 0.0,
+      "images_seen": 0,
+      "total_images": 5,
+      "status": "Absent"
+    }
+  ],
+  "per_image_results": {
+    "1.jpg": [
+      {
+        "image": "1.jpg",
+        "bbox": [
+          305,
+          915,
+          988,
+          1729
+        ],
+        "name": "23053027",
+        "roll_no": "Ankitt-Kushary",
+        "confidence": 0.595,
+        "svm_pred": "23053027",
+        "svm_conf": 0.191,
+        "knn_pred": "23053027",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "1.jpg",
+        "bbox": [
+          1073,
+          891,
+          1477,
+          1347
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.64,
+        "svm_pred": "23052895",
+        "svm_conf": 0.281,
+        "knn_pred": "23052895",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "1.jpg",
+        "bbox": [
+          1473,
+          404,
+          1777,
+          818
+        ],
+        "name": "23052895",
+        "roll_no": "Om-Prakash",
+        "confidence": 0.887,
+        "svm_pred": "23052895",
+        "svm_conf": 0.775,
+        "knn_pred": "23052895",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "1.jpg",
+        "bbox": [
+          1939,
+          538,
+          2192,
+          832
+        ],
+        "name": "23052661",
+        "roll_no": "Ratnadeep-Gharui",
+        "confidence": 0.848,
+        "svm_pred": "23052661",
+        "svm_conf": 0.695,
+        "knn_pred": "23052661",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "1.jpg",
+        "bbox": [
+          2327,
+          76,
+          2469,
+          255
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.85,
+        "svm_pred": "23052661",
+        "svm_conf": 0.329,
+        "knn_pred": "23053526",
+        "knn_conf": 1.0,
+        "agreed": false
+      },
+      {
+        "image": "1.jpg",
+        "bbox": [
+          2708,
+          95,
+          2825,
+          271
+        ],
+        "name": "23052895",
+        "roll_no": "Om-Prakash",
+        "confidence": 0.85,
+        "svm_pred": "23052661",
+        "svm_conf": 0.256,
+        "knn_pred": "23052895",
+        "knn_conf": 1.0,
+        "agreed": false
+      }
+    ],
+    "10.jpg": [
+      {
+        "image": "10.jpg",
+        "bbox": [
+          84,
+          754,
+          952,
+          1729
+        ],
+        "name": "23052158",
+        "roll_no": "Gulshan-Kumar-Dubey",
+        "confidence": 0.92,
+        "svm_pred": "23052158",
+        "svm_conf": 0.841,
+        "knn_pred": "23052158",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "10.jpg",
+        "bbox": [
+          1283,
+          1144,
+          1566,
+          1451
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.85,
+        "svm_pred": "23053019",
+        "svm_conf": 0.187,
+        "knn_pred": "23052158",
+        "knn_conf": 1.0,
+        "agreed": false
+      },
+      {
+        "image": "10.jpg",
+        "bbox": [
+          1313,
+          1536,
+          1693,
+          1990
+        ],
+        "name": "23053027",
+        "roll_no": "Ankitt-Kushary",
+        "confidence": 0.85,
+        "svm_pred": "23051823",
+        "svm_conf": 0.196,
+        "knn_pred": "23053027",
+        "knn_conf": 1.0,
+        "agreed": false
+      },
+      {
+        "image": "10.jpg",
+        "bbox": [
+          1893,
+          864,
+          2079,
+          1076
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.85,
+        "svm_pred": "23051823",
+        "svm_conf": 0.208,
+        "knn_pred": "23052158",
+        "knn_conf": 1.0,
+        "agreed": false
+      },
+      {
+        "image": "10.jpg",
+        "bbox": [
+          2215,
+          1011,
+          2393,
+          1217
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.539,
+        "svm_pred": "23052661",
+        "svm_conf": 0.278,
+        "knn_pred": "23052661",
+        "knn_conf": 0.8,
+        "agreed": true
+      },
+      {
+        "image": "10.jpg",
+        "bbox": [
+          2717,
+          1076,
+          2915,
+          1297
+        ],
+        "name": "23052641",
+        "roll_no": "Hemant-Kumar",
+        "confidence": 0.754,
+        "svm_pred": "23052641",
+        "svm_conf": 0.508,
+        "knn_pred": "23052641",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "10.jpg",
+        "bbox": [
+          3114,
+          689,
+          3200,
+          796
+        ],
+        "name": "23052158",
+        "roll_no": "Gulshan-Kumar-Dubey",
+        "confidence": 0.68,
+        "svm_pred": "23053019",
+        "svm_conf": 0.21,
+        "knn_pred": "23052158",
+        "knn_conf": 0.8,
+        "agreed": false
+      },
+      {
+        "image": "10.jpg",
+        "bbox": [
+          3069,
+          1341,
+          3349,
+          1618
+        ],
+        "name": "23052661",
+        "roll_no": "Ratnadeep-Gharui",
+        "confidence": 0.776,
+        "svm_pred": "23052661",
+        "svm_conf": 0.552,
+        "knn_pred": "23052661",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "10.jpg",
+        "bbox": [
+          3523,
+          1564,
+          3844,
+          1913
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.619,
+        "svm_pred": "23052661",
+        "svm_conf": 0.239,
+        "knn_pred": "23052661",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "10.jpg",
+        "bbox": [
+          3607,
+          1913,
+          4008,
+          2400
+        ],
+        "name": "23052895",
+        "roll_no": "Om-Prakash",
+        "confidence": 0.881,
+        "svm_pred": "23052895",
+        "svm_conf": 0.761,
+        "knn_pred": "23052895",
+        "knn_conf": 1.0,
+        "agreed": true
+      }
+    ],
+    "12.jpg": [
+      {
+        "image": "12.jpg",
+        "bbox": [
+          367,
+          358,
+          625,
+          666
+        ],
+        "name": "23052895",
+        "roll_no": "Om-Prakash",
+        "confidence": 0.869,
+        "svm_pred": "23052895",
+        "svm_conf": 0.739,
+        "knn_pred": "23052895",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "12.jpg",
+        "bbox": [
+          798,
+          195,
+          1006,
+          420
+        ],
+        "name": "23052661",
+        "roll_no": "Ratnadeep-Gharui",
+        "confidence": 0.922,
+        "svm_pred": "23052661",
+        "svm_conf": 0.844,
+        "knn_pred": "23052661",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "12.jpg",
+        "bbox": [
+          825,
+          569,
+          1028,
+          805
+        ],
+        "name": "23053027",
+        "roll_no": "Ankitt-Kushary",
+        "confidence": 0.85,
+        "svm_pred": "23051823",
+        "svm_conf": 0.172,
+        "knn_pred": "23053027",
+        "knn_conf": 1.0,
+        "agreed": false
+      },
+      {
+        "image": "12.jpg",
+        "bbox": [
+          1019,
+          112,
+          1141,
+          273
+        ],
+        "name": "23052641",
+        "roll_no": "Hemant-Kumar",
+        "confidence": 0.771,
+        "svm_pred": "23052641",
+        "svm_conf": 0.541,
+        "knn_pred": "23052641",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "12.jpg",
+        "bbox": [
+          1170,
+          185,
+          1347,
+          390
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.85,
+        "svm_pred": "23052661",
+        "svm_conf": 0.211,
+        "knn_pred": "23052158",
+        "knn_conf": 1.0,
+        "agreed": false
+      },
+      {
+        "image": "12.jpg",
+        "bbox": [
+          1286,
+          558,
+          1504,
+          797
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.68,
+        "svm_pred": "23052661",
+        "svm_conf": 0.221,
+        "knn_pred": "23051823",
+        "knn_conf": 0.8,
+        "agreed": false
+      },
+      {
+        "image": "12.jpg",
+        "bbox": [
+          1366,
+          126,
+          1528,
+          321
+        ],
+        "name": "23052158",
+        "roll_no": "Gulshan-Kumar-Dubey",
+        "confidence": 0.612,
+        "svm_pred": "23052158",
+        "svm_conf": 0.224,
+        "knn_pred": "23052158",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "12.jpg",
+        "bbox": [
+          1495,
+          319,
+          1695,
+          537
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.34,
+        "svm_pred": "23052661",
+        "svm_conf": 0.198,
+        "knn_pred": "23052158",
+        "knn_conf": 0.4,
+        "agreed": false
+      },
+      {
+        "image": "12.jpg",
+        "bbox": [
+          1691,
+          237,
+          1912,
+          514
+        ],
+        "name": "23052661",
+        "roll_no": "Ratnadeep-Gharui",
+        "confidence": 0.685,
+        "svm_pred": "23052661",
+        "svm_conf": 0.371,
+        "knn_pred": "23052661",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "12.jpg",
+        "bbox": [
+          2144,
+          355,
+          2767,
+          1117
+        ],
+        "name": "23052158",
+        "roll_no": "Gulshan-Kumar-Dubey",
+        "confidence": 0.873,
+        "svm_pred": "23052158",
+        "svm_conf": 0.746,
+        "knn_pred": "23052158",
+        "knn_conf": 1.0,
+        "agreed": true
+      }
+    ],
+    "3.jpg": [
+      {
+        "image": "3.jpg",
+        "bbox": [
+          674,
+          1040,
+          1449,
+          1997
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.85,
+        "svm_pred": "23052661",
+        "svm_conf": 0.185,
+        "knn_pred": "23052641",
+        "knn_conf": 1.0,
+        "agreed": false
+      },
+      {
+        "image": "3.jpg",
+        "bbox": [
+          1564,
+          582,
+          2044,
+          1187
+        ],
+        "name": "23052158",
+        "roll_no": "Gulshan-Kumar-Dubey",
+        "confidence": 0.905,
+        "svm_pred": "23052158",
+        "svm_conf": 0.81,
+        "knn_pred": "23052158",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "3.jpg",
+        "bbox": [
+          2170,
+          523,
+          2490,
+          906
+        ],
+        "name": "23052641",
+        "roll_no": "Hemant-Kumar",
+        "confidence": 0.861,
+        "svm_pred": "23052641",
+        "svm_conf": 0.722,
+        "knn_pred": "23052641",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "3.jpg",
+        "bbox": [
+          2630,
+          637,
+          2897,
+          975
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.85,
+        "svm_pred": "23052895",
+        "svm_conf": 0.19,
+        "knn_pred": "23053019",
+        "knn_conf": 1.0,
+        "agreed": false
+      },
+      {
+        "image": "3.jpg",
+        "bbox": [
+          3066,
+          445,
+          3297,
+          747
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.66,
+        "svm_pred": "23052661",
+        "svm_conf": 0.319,
+        "knn_pred": "23052661",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "3.jpg",
+        "bbox": [
+          3493,
+          399,
+          3723,
+          673
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.634,
+        "svm_pred": "23052661",
+        "svm_conf": 0.268,
+        "knn_pred": "23052661",
+        "knn_conf": 1.0,
+        "agreed": true
+      }
+    ],
+    "8.jpg": [
+      {
+        "image": "8.jpg",
+        "bbox": [
+          470,
+          1259,
+          1305,
+          2263
+        ],
+        "name": "23052158",
+        "roll_no": "Gulshan-Kumar-Dubey",
+        "confidence": 0.85,
+        "svm_pred": "23053019",
+        "svm_conf": 0.205,
+        "knn_pred": "23052158",
+        "knn_conf": 1.0,
+        "agreed": false
+      },
+      {
+        "image": "8.jpg",
+        "bbox": [
+          1559,
+          954,
+          2093,
+          1623
+        ],
+        "name": "23052661",
+        "roll_no": "Ratnadeep-Gharui",
+        "confidence": 0.883,
+        "svm_pred": "23052661",
+        "svm_conf": 0.766,
+        "knn_pred": "23052661",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "8.jpg",
+        "bbox": [
+          2266,
+          640,
+          2657,
+          1076
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.85,
+        "svm_pred": "23052661",
+        "svm_conf": 0.192,
+        "knn_pred": "23053027",
+        "knn_conf": 1.0,
+        "agreed": false
+      },
+      {
+        "image": "8.jpg",
+        "bbox": [
+          2699,
+          700,
+          2987,
+          1008
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.51,
+        "svm_pred": "23052661",
+        "svm_conf": 0.225,
+        "knn_pred": "23052158",
+        "knn_conf": 0.6,
+        "agreed": false
+      },
+      {
+        "image": "8.jpg",
+        "bbox": [
+          3063,
+          536,
+          3297,
+          842
+        ],
+        "name": "23052895",
+        "roll_no": "Om-Prakash",
+        "confidence": 0.859,
+        "svm_pred": "23052895",
+        "svm_conf": 0.718,
+        "knn_pred": "23052895",
+        "knn_conf": 1.0,
+        "agreed": true
+      },
+      {
+        "image": "8.jpg",
+        "bbox": [
+          3452,
+          693,
+          3654,
+          883
+        ],
+        "name": "Unknown",
+        "roll_no": null,
+        "confidence": 0.68,
+        "svm_pred": "23052661",
+        "svm_conf": 0.263,
+        "knn_pred": "23053019",
+        "knn_conf": 0.8,
+        "agreed": false
+      }
+    ]
+  }
+}

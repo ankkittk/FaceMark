@@ -1,7 +1,6 @@
 # Face Recognition Attendance System
-**Final Year Project | Computer Science**
 
-A complete offline attendance system using YOLO face detection and ArcFace recognition,
+An attendance system using YOLO face detection and ArcFace recognition,
 designed for classrooms of ~80 students with 3–4 images per session.
 
 ---

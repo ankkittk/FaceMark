@@ -1,4 +1,4 @@
-# Offline Face Recognition Attendance System
+# Face Recognition Attendance System
 **Final Year Project | Computer Science**
 
 A complete offline attendance system using YOLO face detection and ArcFace recognition,

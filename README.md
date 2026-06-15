@@ -1,4 +1,4 @@
-# Face Recognition Attendance System
+# FaceMark - Smart Attendance System
 
 An attendance system using YOLO face detection and ArcFace recognition,
 designed for classrooms of ~80 students with 3–4 images per session.
